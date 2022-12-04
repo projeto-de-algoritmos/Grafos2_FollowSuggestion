@@ -1,16 +1,30 @@
 const graph = require("../listOfFollowers.json");
 const nodes = Object.keys(graph);
 
+const getinverseGraph = () => { 
+  const inverse = {};
+  for (const key in graph) {
+    inverse[key] = [];
+  }
+  for (const key in graph) {
+    for (const follower of graph[key]) {
+      inverse[follower].push(key);
+    }
+  }
+  return inverse;
+};
+
+const inverseGraph = getinverseGraph();
 class Graph {
-  static getNeighbors(node) {
+  static getNeighbors(graph, node) {
     return graph[node];
   }
 
   static dfsStackOrder(node, visited, stack) {
     // Mark as visited
     visited.push(node);
-    // Get neighbors and iterate
-    this.getNeighbors(node).forEach((neighbor) => {
+    // Get neighbors and iterate in graph
+    this.getNeighbors(graph, node).forEach((neighbor) => {
       const isVisited = visited.includes(neighbor);
       if (!isVisited) {
         this.dfsStackOrder(neighbor, visited, stack);
@@ -28,8 +42,8 @@ class Graph {
     // Add to current component
     component.push(node);
 
-    // Get neighbors and iterate
-    this.getNeighbors(node).forEach((neighbor) => {
+    // Get neighbors and iterate in inverse graph
+    this.getNeighbors(inverseGraph, node).forEach((neighbor) => {
       const isVisited = visited.includes(neighbor);
       if (!isVisited) {
         this.dfsMakeSCC(neighbor, visited, component);
@@ -38,6 +52,7 @@ class Graph {
   }
 
   static getStackOrder() {
+    // stack and visited stores
     const stack = [];
     const visited = [];
     nodes.forEach((node) => {
@@ -52,10 +67,11 @@ class Graph {
 
   // SCC algorithm
   static getSCC() {
-    // Make mount stack sequence of nodes
+    // fill order
     const stack = this.getStackOrder();
 
-    const SCC = [];
+    // SCC and visited stores
+    const scc = [];
     const visited = [];
 
     while (stack.length) {
@@ -67,11 +83,11 @@ class Graph {
       if (!isVisited) {
         const component = [];
         this.dfsMakeSCC(node, visited, component);
-        SCC.push(component);
+        scc.push(component);
       }
     }
 
-    return SCC;
+    return scc;
   }
 }
 
