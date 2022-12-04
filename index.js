@@ -4,7 +4,6 @@ const fs = require("fs");
 const _ = require("lodash");
 const contribuitors = require("./uniqueContributors.json");
 
-console.log(process.env.TOKEN);
 const octokit = new Octokit({
   auth: process.env.TOKEN,
 });

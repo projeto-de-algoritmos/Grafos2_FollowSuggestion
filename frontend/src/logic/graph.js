@@ -1,4 +1,4 @@
-const graph = require("../listOfFollowers.json");
+import graph from "./listOfFollowers.json";
 const nodes = Object.keys(graph);
 
 const getinverseGraph = () => { 
@@ -91,8 +91,4 @@ class Graph {
   }
 }
 
-const main = () => {
-  const SCC = Graph.getSCC();
-  console.log(SCC);
-};
-main();
+export {Graph, inverseGraph};
