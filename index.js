@@ -40,7 +40,7 @@ const main = async () => {
         } catch (error) {
           console.log(error.message);
         }
-
+        if(page > 10) break;
         page++;
       }
     }
