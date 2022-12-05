@@ -1,44 +1,47 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# Follow Suggestion
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 29<br>
+**Conteúdo da Disciplina**: Grafos 2<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 18/0118005  | Carlos Rafael Vasconcelos de Matos |
+| 20/0021541  | Karla Chaiane da Silva Feliciano   |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O Projeto consiste na sugestão de conexões do github de alunos que estão dentro da [organização da disciplina](https://github.com/projeto-de-algoritmos). Utilizando o algoritmo de [Kosaraju's](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm) para encontrar componentes fortemente conectados, e sugerir os membros do grupo.
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: JavaScript<br>
+**Framework**: React<br>
+
+#### Pré requisitos
+
+É necessária a instalação do nodejs
+
+- [Node v16.17.0+](https://nodejs.org/en/)
+
+#### Passos
+
+Para instalar as dependencias:
+  
+  - **npm install**
+
+Para executar o projeto:
+
+  - **npm start** ou **npm run start**
+
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+A aplicação estará disponivel na porta 3000
+
+http://localhost:3000/
+
 
 
 
