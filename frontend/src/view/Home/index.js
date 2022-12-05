@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.scss";
-import collaboratorsJSON from "../../uniqueContributors.json";
+import collaboratorsJSON from "../../contributors.json";
 import suggestion from "../../logic/suggestion";
 import { ListCollaborator } from "../../components/ListCollaborator";
 
@@ -12,17 +12,13 @@ function Home() {
 
   const handleCollaborator = (event) => {
     setCollaborator(event.target.value);
-    const suggestLogins = suggestion(collaborator).sort();
-    const hydratedSuggestLogins = suggestLogins.map((login) => {
-      const collaborator = collaboratorsJSON.find(
-        (collaborator) => collaborator.login === login
-      );
-      return collaborator;
-    });
-    if (hydratedSuggestLogins.length) {
-      return setFollowersSuggestion(hydratedSuggestLogins);
-    }
-    setFollowersSuggestion(collaboratorsJSON);
+    const suggestLogins = suggestion(event.target.value).sort();
+    if (!suggestLogins.length) return setFollowersSuggestion(collaboratorsJSON);
+    const hydratedSuggestLogins = suggestLogins.map((suggestLogin) =>
+      collaboratorsJSON.find(({ login }) => login === suggestLogin)
+    );
+
+    setFollowersSuggestion(hydratedSuggestLogins);
   };
 
   return (
@@ -33,15 +29,15 @@ function Home() {
           disablePortal
           id="combo-box-demo"
           options={collaboratorsJSON.map((collaborator) => collaborator.login)}
-          sx={{ width: 300 }}
+          sx={{ width: 500 }}
           renderInput={(params) => <TextField {...params} label="Username" />}
-          onSelect={handleCollaborator}
+          onSelectCapture={handleCollaborator}
         />
       </div>
       {!suggestion(collaborator).length && (
         <Alert severity="warning">
-          O usuário não tem um grupo fortemente conectado ou já segue todos do grupo, todos os membros são
-          recomendados
+          O usuário não tem um grupo fortemente conectado ou já segue todos do
+          grupo, todos os membros são recomendados
         </Alert>
       )}
       <ListCollaborator collaborators={followersSuggestion} />

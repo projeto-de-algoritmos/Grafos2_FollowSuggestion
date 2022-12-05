@@ -1,22 +1,25 @@
 import React from "react";
 import "./styles.scss";
 
-// import { Container } from './styles';
-
 function ListCollaborator({ collaborators }) {
   const collaboratorsList = () =>
     collaborators.map((collaborator) => {
       return (
-        <div className="collaborator-item" key={collaborator.id}>
+        <a
+          className="collaborator-item"
+          href={collaborator.html_url}
+          target="_blank"
+          key={collaborator.id} rel="noreferrer"
+        >
           <img
             className="collaborator-image"
             src={collaborator.avatar_url}
             alt={collaborator.login}
           />
-          <a href={collaborator.html_url} target="_blank" rel="noreferrer">
+          <p className="collaborator-name">
             {collaborator.login}
-          </a>
-        </div>
+          </p>
+        </a>
       );
     });
 

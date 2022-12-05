@@ -15,35 +15,33 @@ const main = async () => {
     hashMap[contribuitors[i].login] = [];
   }
 
-  const usersFollowersPromisse = contribuitors.map(
-    async (contributor) => {
-      const { login } = contributor;
+  const usersFollowersPromisse = contribuitors.map(async (contributor) => {
+    const { login } = contributor;
 
-      let page = 1;
-      while (true) {
-        try {
-          const { data: followers } = await octokit.request(
-            "GET /users/{username}/followers",
-            {
-              username: login,
-              per_page: 100,
-              page,
-            }
-          );
-          console.log(`Fetching followers from ${login} page ${page}`);
-          const followersLogin = followers
-            .filter((follower) => hashMap[follower.login])
-            .map((follower) => follower.login);
-          hashMap[contributor.login].push(...followersLogin);
-          if (followers.length !== 100) break;
-        } catch (error) {
-          console.log(error.message);
-        }
-        if(page > 10) break;
-        page++;
+    let page = 1;
+    while (true) {
+      try {
+        const { data: followers } = await octokit.request(
+          "GET /users/{username}/followers",
+          {
+            username: login,
+            per_page: 100,
+            page,
+          }
+        );
+        console.log(`Fetching followers from ${login} page ${page}`);
+        const followersLogin = followers
+          .filter((follower) => hashMap[follower.login])
+          .map((follower) => follower.login);
+        hashMap[contributor.login].push(...followersLogin);
+        if (followers.length !== 100) break;
+      } catch (error) {
+        console.log(error.message);
       }
+      if (page > 10) break;
+      page++;
     }
-  );
+  });
 
   // chunks of 415 promisses
 
