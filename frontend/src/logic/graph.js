@@ -1,7 +1,7 @@
 import graph from "./listOfFollowers.json";
 const nodes = Object.keys(graph);
 
-const getinverseGraph = () => { 
+const getinverseGraph = () => {
   const inverse = {};
   for (const key in graph) {
     inverse[key] = [];
@@ -91,4 +91,4 @@ class Graph {
   }
 }
 
-export {Graph, inverseGraph};
+export { Graph, inverseGraph, graph };

@@ -1,14 +1,27 @@
 import React from "react";
-import "./styles.scss";
 import collaboratorsJSON from "../../contributors.json";
 import suggestion from "../../logic/suggestion";
 import { ListCollaborator } from "../../components/ListCollaborator";
-
-import { Autocomplete, TextField, Alert } from "@mui/material";
+import { Link, useParams } from "react-router-dom";
+import { Autocomplete, TextField, Alert, Button } from "@mui/material";
+import "./styles.scss";
 
 function Home() {
+  const query = useParams();
   const [followersSuggestion, setFollowersSuggestion] = React.useState([]);
-  const [collaborator, setCollaborator] = React.useState("");
+  const [collaborator, setCollaborator] = React.useState(null);
+
+  React.useEffect(() => {
+    const { login } = query;
+    if (login) {
+      let event = {
+        target: {
+          value: login,
+        },
+      };
+      handleCollaborator(event);
+    }
+  }, [query]);
 
   const handleCollaborator = (event) => {
     setCollaborator(event.target.value);
@@ -23,7 +36,19 @@ function Home() {
 
   return (
     <div className="container-suggestion">
-      <p className="title-suggestion">Sugestões</p>
+      <p className="page-title">Sugestões</p>
+      {collaborator && (
+        <div className="button-group">
+          <Button variant="outlined" color="secondary">
+            <Link to={`/Connection/${collaborator}/Seguindo`}>Seguindo</Link>
+          </Button>
+          <Button variant="outlined" color="secondary">
+            <Link to={`/Connection/${collaborator}/Seguidores`}>
+              Seguidores
+            </Link>
+          </Button>
+        </div>
+      )}
       <div className="input-area">
         <Autocomplete
           disablePortal
@@ -32,6 +57,7 @@ function Home() {
           sx={{ width: 500 }}
           renderInput={(params) => <TextField {...params} label="Username" />}
           onSelectCapture={handleCollaborator}
+          value={collaborator}
         />
       </div>
       {!suggestion(collaborator).length && (
