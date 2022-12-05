@@ -1,0 +1,30 @@
+.list-collaborator {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .collaborator-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1 0 21%;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 0.2px;
+
+    .collaborator-image {
+      border-radius: 50%;
+      height: 80px;
+      margin-right: 25px;
+    }
+    .collaborator-name {
+      font-weight: 700;
+    }
+  }
+  .collaborator-item:hover {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,16 @@
+.input-area {
+  display: flex;
+  justify-content: center;
+}
+
+.container-suggestion {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  .title-suggestion {
+    font-weight: 700;
+    font-size: x-large;
+  }
+}
