@@ -4,18 +4,24 @@
 **Conteúdo da Disciplina**: Grafos 2<br>
 
 ## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| 18/0118005  | Carlos Rafael Vasconcelos de Matos |
-| 20/0021541  | Karla Chaiane da Silva Feliciano   |
 
-## Sobre 
+| Matrícula  | Aluno                              |
+| ---------- | ---------------------------------- |
+| 18/0118005 | Carlos Rafael Vasconcelos de Matos |
+| 20/0021541 | Karla Chaiane da Silva Feliciano   |
+
+## Sobre
+
 O Projeto consiste na sugestão de conexões do github de alunos que estão dentro da [organização da disciplina](https://github.com/projeto-de-algoritmos). Utilizando o algoritmo de [Kosaraju's](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm) para encontrar componentes fortemente conectados, e sugerir os membros do grupo.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
 
-## Instalação 
+![](screenshots/suggestion.png)
+![](screenshots/followers.png)
+![](screenshots/following.png)
+
+## Instalação
+
 **Linguagem**: JavaScript<br>
 **Framework**: React<br>
 
@@ -27,22 +33,32 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 #### Passos
 
-Para instalar as dependencias:
-  
-  - **npm install**
+Entre na pasta **frontend**
+
+```terminal
+cd frontend
+```
+
+instale as dependencias do projeto:
+
+```terminal
+npm install
+```
 
 Para executar o projeto:
 
-  - **npm start** ou **npm run start**
+```terminal
+npm start
+```
 
+## Uso
 
-## Uso 
-
-A aplicação estará disponivel na porta 3000
+Depois da execução; a aplicação estará disponivel na porta 3000
 
 http://localhost:3000/
 
+## Informações Adicionais
 
+O projeto utiliza **dados estáticos**, por questões de de [**rate limit**](https://en.wikipedia.org/wiki/Rate_limiting) da API do Github (fornecedor dos dados utilizados na aplicação).
 
-
-
+A **amostra de contribuidores** foi construida com base nos contribuidores dos repositórios da [**organização**](https://github.com/projeto-de-algoritmos).
