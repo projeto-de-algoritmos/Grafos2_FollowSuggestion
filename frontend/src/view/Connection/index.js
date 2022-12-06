@@ -47,7 +47,9 @@ function Connection() {
 
   return (
     <div className="container-suggestion">
-      <p className="page-title">{type}</p>
+      <p className="page-title">
+        {collaborator} - {type}
+      </p>
       <div className="button-group">
         <Button variant="outlined" color="secondary">
           <Link to={`/${collaborator}`}>Sugestões</Link>

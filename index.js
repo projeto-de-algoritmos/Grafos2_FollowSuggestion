@@ -1,5 +1,5 @@
-const { Octokit } = require("@octokit/core");
 require("dotenv/config");
+const { Octokit } = require("@octokit/core");
 const fs = require("fs");
 const _ = require("lodash");
 const contribuitors = require("./uniqueContributors.json");
@@ -44,7 +44,6 @@ const main = async () => {
   });
 
   // chunks of 415 promisses
-
   await Promise.all(usersFollowersPromisse);
 
   fs.writeFile("listOfFollowers.json", JSON.stringify(hashMap), (err) => {});
