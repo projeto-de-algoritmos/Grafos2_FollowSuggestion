@@ -12,7 +12,7 @@
 
 ## Sobre
 
-O Projeto consiste na sugestão de conexões do github de alunos que estão dentro da [organização da disciplina](https://github.com/projeto-de-algoritmos). Utilizando o algoritmo de [Kosaraju's](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm) para encontrar componentes fortemente conectados, e sugerir os membros do grupo.
+O Projeto consiste na sugestão de conexões do Github de pessoas que estão dentro da [organização da disciplina](https://github.com/projeto-de-algoritmos). Utilizando o algoritmo de [Kosaraju's](https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm) para encontrar componentes fortemente conectados, e sugerir os membros do grupo.
 
 ## Screenshots
 
@@ -39,7 +39,7 @@ Entre na pasta **frontend**
 cd frontend
 ```
 
-instale as dependencias do projeto:
+Instale as dependencias do projeto:
 
 ```terminal
 npm install
